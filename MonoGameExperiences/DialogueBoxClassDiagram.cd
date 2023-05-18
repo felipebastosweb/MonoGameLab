@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MonoGameExperiences.DialogBoxes.DialogueManager">
+    <Position X="0.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAAAAAAgAAABAAAAAIAAACAAAAIAAAAAAAAIA=</HashCode>
+      <FileName>DialogBoxes\DialogueManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="Boxes" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="MonoGameExperiences.Game1">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAACAAAAwAAAAAAAAIAAAAAAAACAIAAAAAAAAQ=</HashCode>
+      <FileName>Game1.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="dialogueBox" />
+      <Field Name="dialogueManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MonoGameExperiences.DialogBoxes.DialogueBox">
+    <Position X="3.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAIAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>DialogBoxes\DialogueBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
