@@ -8,7 +8,7 @@ namespace MonoGameExperiences.DialogBoxes
     {
         private Queue<DialogueBox> Boxes;
         private DialogueBox currentBox;
-        private double displayTime = 15;
+        private double displayTime = 7;
         private double transitionTime = 2;
         private double timer = 0;
 

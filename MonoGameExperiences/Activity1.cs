@@ -4,6 +4,8 @@ using Android.OS;
 using Android.Views;
 using Microsoft.Xna.Framework;
 
+// minSDK 23 -> 17
+
 namespace MonoGameExperiences
 {
     [Activity(

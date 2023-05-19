@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 
 using MonoGameExperiences.DialogBoxes;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace MonoGameExperiences
 {
@@ -34,31 +35,41 @@ namespace MonoGameExperiences
 
             // TODO: use this.Content to load your game content here
 
+            // load the content to DialogueManager
             var font = Content.Load<SpriteFont>("FontArial");
             var TextureBox = Content.Load<Texture2D>("ChatBallon");
 
-            dialogueBox = new DialogueBox(font, TextureBox, new string[] {
-                "Ola, aventureiro!",
-                "Bem-vindo ao meu reino.",
-                "Eu sou o Guardiao deste lugar."
-            });
+            // create the boxes
+            var boxes = new Queue<DialogueBox>();
 
-            var dialogueBox2 = new DialogueBox(font, TextureBox, new string[] {
-                "Vou lhe dizer a sua missao",
-                "Voce ira participar da aula",
-                "ate o final. Se nao se comportar,",
-                "terei de retira-lo."
-            });
+            Task.Run(() => {
+                dialogueBox = new DialogueBox(font, TextureBox, new string[] {
+                    "Ola, aventureiro!",
+                    "Bem-vindo ao meu reino.",
+                    "Eu sou o Guardiao deste lugar."
+                });
+                boxes.Enqueue(dialogueBox);
+            }).Wait();
 
+            Task.Run(() => {
+                var dialogueBox2 = new DialogueBox(font, TextureBox, new string[] {
+                    "Vou lhe dizer a sua missao",
+                    "Voce ira participar da aula",
+                    "ate o final. Se nao se comportar,",
+                    "terei de retira-lo."
+                });
+                boxes.Enqueue(dialogueBox2);
+            }).Wait();
+
+            //Task.WaitAny(new Task[] { SomeTask(), SomeTask2() });
+
+            Task.CompletedTask.Wait();
+
+            dialogueManager = new DialogueManager(font, TextureBox, boxes);
             /*
             dialogueManager = new DialogueManager(font, TextureBox, guardianDialogue);
             */
 
-            var boxes = new Queue<DialogueBox>();
-            boxes.Enqueue(dialogueBox);
-            boxes.Enqueue(dialogueBox2);
-
-            dialogueManager = new DialogueManager(font, TextureBox, boxes);
         }
 
         protected override void Update(GameTime gameTime)
